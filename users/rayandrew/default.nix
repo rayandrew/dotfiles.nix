@@ -19,6 +19,6 @@ in
     uid = 1000;
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
-    passwordFile = age.secrets.user-pw.path;
+    passwordFile = config.age.secrets.user-pw.path;
   };
 }
