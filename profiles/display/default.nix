@@ -25,10 +25,25 @@ in
   services.xserver = {
     enable = true;
     libinput.enable = true;
+    #displayManager = {
+    #  startx = {
+    #    enable = true;
+    #  };
+    #};
     displayManager = {
-      startx = {
+      defaultSession = "xsession";
+      lightdm = {
         enable = true;
       };
+      session = [
+        {
+          manage = "desktop";
+          name = "xsession";
+          start = ''
+            exec $HOME/.xsession
+          '';
+        }
+      ];
     };
   };
 }

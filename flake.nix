@@ -133,7 +133,7 @@
                 users.root
               ];
               hardware = [
-                profiles.hardwares.audio
+                hardwares.audio
                 hardwares.bluetooth
                 hardwares.backlight
                 hardwares.sensors
@@ -147,19 +147,21 @@
           imports = [ (digga.lib.importExportableModules ./users/modules) ];
           modules = [ ];
           importables = rec {
-            profiles = digga.lib.rakeLeaves ./users/profiles;
+            profiles = digga.lib.rakeLeaves ./users/profiles // {
+              wm = digga.lib.rakeLeaves ./users/profiles/wm;
+            };
             suites = with profiles; rec {
               base = [
                 direnv
                 git
               ];
               desktop = [
-
+                wm.i3
               ];
             };
           };
           users = {
-            rayandrew = { suites, ... }: { imports = suites.base; };
+            rayandrew = { suites, ... }: { imports = suites.base ++ suites.desktop; };
           }; # digga.lib.importers.rakeLeaves ./users/hm;
         };
 
