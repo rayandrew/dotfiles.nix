@@ -12,7 +12,7 @@ in
 
   home-manager.users = { inherit (hmUsers) rayandrew; };
 
-  users.users.rayandrew = {
+  users.extraUsers.rayandrew = {
     createHome = true;
     description = "Ray Andrew";
     group = "users";
