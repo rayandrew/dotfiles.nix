@@ -168,6 +168,7 @@
                 git
                 utilities
                 theme
+                fonts
               ];
               desktop = [
                 wm.i3
