@@ -131,6 +131,7 @@
                 core
                 users.rayandrew
                 users.root
+                ssh
               ];
               hardware = [
                 hardwares.audio
@@ -138,7 +139,11 @@
                 hardwares.backlight
                 hardwares.sensors
               ];
-              personal = [ cachix display packages ];
+              personal = [
+                cachix
+                display
+                packages
+              ];
             };
           };
         };
