@@ -123,6 +123,7 @@
           };
           importables = rec {
             profiles = digga.lib.rakeLeaves ./profiles // {
+              hardwares = digga.lib.rakeLeaves ./profiles/hardwares;
               users = digga.lib.rakeLeaves ./users;
             };
             suites = with profiles; rec {
@@ -132,7 +133,7 @@
                 users.root
               ];
               hardware = [
-                hardwares.audio
+                profiles.hardwares.audio
                 hardwares.bluetooth
                 hardwares.backlight
                 hardwares.sensors
