@@ -148,12 +148,15 @@
           modules = [ ];
           importables = rec {
             profiles = digga.lib.rakeLeaves ./users/profiles // {
+              terminal = digga.lib.rakeLeaves ./users/profiles/terminal;
               wm = digga.lib.rakeLeaves ./users/profiles/wm;
             };
             suites = with profiles; rec {
               base = [
                 direnv
                 git
+                utilities
+                terminal.urxvt
               ];
               desktop = [
                 wm.i3
