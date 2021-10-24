@@ -7,4 +7,6 @@
 
 {
   colorscheme = inputs.nix-colors.colorSchemes.dracula;
+
+  imports = [ ./xresources.nix ];
 }
