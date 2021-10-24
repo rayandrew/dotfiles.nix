@@ -5,12 +5,12 @@ let
   omenUser = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC0xh+6ZkORm10teBN5P+rxKvb7xUVTtGBlLltyyBRRKHLmJkNHTxTOhhAewshjGMNXUoiMpRsgcpDET3F3mH24qGLGBXus24mseWCeW7wJxa/gLvA9QIVD/Ml1+p+OJiu9B+JAJO+YvRygloteIQ6K5MqiS1B4Sve9mq7H6eezyiy/43cj59YKYvIR2et2IOJJCT3oFf/Swb1vqLe1pZBHYNxOXTTkJXynUwihjcgkVBJszVj2uiUlGdxxG8vFwwqd+wLIQNCg7y6yU+dUrbh6uuM3Fu92oQtV03qx19i14E6pr+s/L7brUnG86j9cBUsxynt3YTy0DxJD7QndeqVQJXKLlAFC8MetP6lFMxidg58ZLuOOJeOgL9RblJRePwtmlRx/apqvgOyCYKZ7ElRiQJWbTrY5ZD/OWi47gSK6rZrEXnkPKDyaLdbtN08T3AlUd+FXvG4hwfyODpGX4033j7+bG05IVk3NiUuvLM7KucGWVea7+ra2wsf1u7STf1xHi+mx56NvXOI20KmrojIJ45HCLTjrn47v78GXAnjcapnWszEebCNcW6hj6qQS4vScr045tGW17fIseclUm2LtfhRRnFO9K2CWvoGAZGjSbaJTF3tQwfJU21wjW6Y0vSkqibZDHX5GRu6pmsftadFu+6sGUrGLYacamETXNuoZEQ==";
   users = [ macbook18User lemurUser omenUser ];
 
-  # systems
-  lemur = "";
+  # hosts 
+  lemurHost = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINoNXOnOotJ0es+dVxk0+a9TvVEX4ONQ5g2gD57tcpx8";
 
-  systems = [ lemur ];
+  hosts = [ lemurHost ];
 
-  allKeys = users ++ systems;
+  allKeys = users ++ hosts;
 in
 {
   "root-pw.age".publicKeys = allKeys;
