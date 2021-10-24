@@ -154,7 +154,9 @@
 
         home = {
           imports = [ (digga.lib.importExportableModules ./users/modules) ];
-          modules = [ ];
+          modules = [
+            nix-colors.homeManagerModule
+          ];
           importables = rec {
             profiles = digga.lib.rakeLeaves ./users/profiles // {
               terminal = digga.lib.rakeLeaves ./users/profiles/terminal;
@@ -176,9 +178,7 @@
           };
           users = {
             rayandrew = { suites, ... }: {
-              imports =
-                nix-colors.homeManagerModule
-                ++ suites.base
+              imports = suites.base
                 ++ suites.desktop;
             };
           }; # digga.lib.importers.rakeLeaves ./users/hm;
