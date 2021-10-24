@@ -132,10 +132,10 @@
                 users.root
               ];
               hardware = [
-                hardware.audio
-                hardware.bluetooth
-                hardware.backlight
-                hardware.sensors
+                hardwares.audio
+                hardwares.bluetooth
+                hardwares.backlight
+                hardwares.sensors
               ];
               personal = [ cachix display packages ];
             };
