@@ -1,0 +1,3 @@
+root/default.nix filter=git-crypt diff=git-crypt
+rayandrew/default.nix filter=git-crypt diff=git-crypt
+.gitattributes !fiter !diff
