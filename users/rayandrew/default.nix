@@ -4,6 +4,8 @@
 , ...
 }:
 
+let inherit (builtins) readFile;
+in
 {
   age.secrets.user-pw.file = "${self}/secrets/user-pw.age";
 
@@ -17,6 +19,6 @@
     uid = 1000;
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
-    password = age.secrets.user-pw.file;
+    password = (readFile age.secrets.user-pw.file);
   };
 }
