@@ -8,5 +8,5 @@
   ++ suites.hardware;
 
   bud.enable = true;
-  bud.localFlakeClone = "/home/rayandrew/devos";
+  bud.localFlakeClone = "/home/rayandrew/dotfiles";
 }
