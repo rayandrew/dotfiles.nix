@@ -165,15 +165,22 @@
                 direnv
                 git
                 utilities
-                terminal.urxvt
+                theme
               ];
               desktop = [
                 wm.i3
+                terminal.urxvt
+                terminal.kitty
               ];
             };
           };
           users = {
-            rayandrew = { suites, ... }: { imports = suites.base ++ suites.desktop; };
+            rayandrew = { suites, ... }: {
+              imports =
+                nix-colors.homeManagerModule
+                ++ suites.base
+                ++ suites.desktop;
+            };
           }; # digga.lib.importers.rakeLeaves ./users/hm;
         };
 
