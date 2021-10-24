@@ -1,6 +1,7 @@
 { self
 , hmUsers
 , age
+, config
 , ...
 }:
 
