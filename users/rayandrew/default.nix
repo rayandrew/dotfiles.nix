@@ -5,7 +5,7 @@
 }:
 
 {
-  # age.secrets.user-pw.file = "${self}/secrets/user-pw.age";
+  age.secrets.user-pw.file = "${self}/secrets/user-pw.age";
 
   home-manager.users = { inherit (hmUsers) rayandrew; };
 
@@ -17,6 +17,6 @@
     uid = 1000;
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
-    # password = age.secrets.user-pw.file;
+    password = age.secrets.user-pw.file;
   };
 }
