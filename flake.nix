@@ -40,6 +40,9 @@
 
       nixos-hardware.url = "github:nixos/nixos-hardware";
 
+      nix-colors.url = "github:misterio77/nix-colors";
+      nix-colors.inputs.nixpkgs.follows = "latest";
+
       # start ANTI CORRUPTION LAYER
       # remove after https://github.com/NixOS/nix/pull/4641
       nixpkgs.follows = "nixos";
@@ -57,6 +60,7 @@
     , nixos
     , home
     , nixos-hardware
+    , nix-colors
     , nur
     , agenix
     , nvfetcher

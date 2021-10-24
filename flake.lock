@@ -357,6 +357,21 @@
         "type": "github"
       }
     },
+    "nix-colors": {
+      "locked": {
+        "lastModified": 1633318162,
+        "narHash": "sha256-rr6BMT4o66KWU9yXVv9W/yB/zMCVZC+zb4OvRftc/h8=",
+        "owner": "misterio77",
+        "repo": "nix-colors",
+        "rev": "182b4b8709b8ffe4e9774a4c5d6877bf6bb9a21c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "misterio77",
+        "repo": "nix-colors",
+        "type": "github"
+      }
+    },
     "nixos": {
       "locked": {
         "lastModified": 1635070614,
@@ -415,11 +430,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1635094979,
-        "narHash": "sha256-XcANQCTrY3vyDcQF0KaGtcw4sxLv7A0kMdvFuOFgD5Q=",
+        "lastModified": 1635124149,
+        "narHash": "sha256-lNdqN0EpXqT8Ui6ipbs/Hp7VS+c2JVGhRRkXsrveJbs=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "97605754a8d1a774775eca837689e06980354607",
+        "rev": "8482380861573ae8f9bff3dff88cdeae4d80f806",
         "type": "github"
       },
       "original": {
@@ -509,6 +524,7 @@
         "home": "home",
         "latest": "latest_2",
         "naersk": "naersk",
+        "nix-colors": "nix-colors",
         "nixlib": [
           "digga",
           "nixlib"
