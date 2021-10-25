@@ -6,6 +6,8 @@ in
 
   nix.systemFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
 
+  users.mutableUsers = true;
+
   environment = {
 
     systemPackages = with pkgs; [
