@@ -32,6 +32,40 @@ in
           "${mod}+Shift+v" = "split h";
           "${mod}+v" = "split v";
         };
+        bars = [
+          {
+            colors = {
+              background = "$base00";
+              separator = "$base01";
+              statusline = "$base04";
+              focusedWorkspace = {
+                border = "$base05";
+                background = "$base0D";
+                text = "$base00";
+              };
+              activeWorkspace = {
+                border = "$base05";
+                background = "$base0D";
+                text = "$base00";
+              };
+              inactiveWorkspace = {
+                border = "$base03";
+                background = "$base01";
+                text = "$base05";
+              };
+              urgentWorkspace = {
+                border = "$base08";
+                background = "$base08";
+                text = "$base00";
+              };
+              bindingMode = {
+                border = "$base00";
+                background = "$base0A";
+                text = "$base00";
+              };
+            };
+          }
+        ];
       };
 
       extraConfig = ''
@@ -51,13 +85,16 @@ in
         set $base0D #${colors.base0D}
         set $base0E #${colors.base0E}
         set $base0F #${colors.base0F}
-      '';
 
-      barModule = {
-        color = {
-          background = "$base00";
-        };
-      };
+        # Basic color configuration using the Base16 variables for windows and borders.
+        # Property Name         Border  BG      Text    Indicator Child Border
+        client.focused          $base05 $base00 $base04 $base0D $base0C
+        client.focused_inactive $base01 $base01 $base05 $base03 $base01
+        client.unfocused        $base01 $base00 $base05 $base01 $base01
+        client.urgent           $base08 $base08 $base00 $base08 $base08
+        client.placeholder      $base00 $base00 $base05 $base00 $base00
+        client.background       $base07
+      '';
     };
   };
 

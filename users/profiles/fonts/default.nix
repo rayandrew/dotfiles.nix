@@ -8,7 +8,10 @@
   };
 
   home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+    (nerdfonts.override {
+      fonts = [ "FiraCode" "DroidSansMono" "Iosevka" ];
+    })
+    powerline-fonts
     # gohufont
     ubuntu_font_family
     dejavu_fonts
