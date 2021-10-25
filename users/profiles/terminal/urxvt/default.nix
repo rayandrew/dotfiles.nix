@@ -16,7 +16,7 @@
     };
     scroll = {
       bar = {
-        enable = true;
+        enable = false;
       };
     };
   };
