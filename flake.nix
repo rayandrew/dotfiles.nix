@@ -160,6 +160,7 @@
           importables = rec {
             profiles = digga.lib.rakeLeaves ./users/profiles // {
               browser = digga.lib.rakeLeaves ./users/profiles/browser;
+              email = digga.lib.rakeLeaves ./users/profiles/email;
               terminal = digga.lib.rakeLeaves ./users/profiles/terminal;
               wm = digga.lib.rakeLeaves ./users/profiles/wm;
             };
@@ -170,6 +171,7 @@
                 utilities
                 theme
                 fonts
+                email.neomutt
               ];
               desktop = [
                 wm.i3

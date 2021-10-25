@@ -5,6 +5,11 @@
     userName = "Ray Andrew";
     userEmail = "raydreww@gmail.com";
 
+    signing = {
+      key = "B52C0761F4A03D2567689EF2E2E8D63137DD489E";
+      signByDefault = true;
+    };
+
     extraConfig = {
       pull.rebase = false;
     };
