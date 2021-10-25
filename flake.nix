@@ -159,6 +159,7 @@
           ];
           importables = rec {
             profiles = digga.lib.rakeLeaves ./users/profiles // {
+              browser = digga.lib.rakeLeaves ./users/profiles/browser;
               terminal = digga.lib.rakeLeaves ./users/profiles/terminal;
               wm = digga.lib.rakeLeaves ./users/profiles/wm;
             };
@@ -173,7 +174,7 @@
               desktop = [
                 wm.i3
                 terminal.urxvt
-                terminal.kitty
+                browser.brave
               ];
             };
           };

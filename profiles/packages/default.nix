@@ -18,7 +18,6 @@
       nano
       vim
       wget
-      google-chrome
 
       notify-osd
       libnotify
