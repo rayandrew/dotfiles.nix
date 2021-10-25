@@ -1,9 +1,10 @@
 { config
 , lib
 , pkgs
-, nix-colors
-, ... }:
+, inputs
+, ...
+}:
 
 {
-   colorscheme = nix-colors.colorSchemes.dracula;
+  colorscheme = inputs.nix-colors.colorSchemes.dracula;
 }
