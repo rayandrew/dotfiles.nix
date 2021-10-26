@@ -1,11 +1,11 @@
 { config
-, pkgs
 , libs
+, pkgs
 , ...
 }:
 
 {
-  programs.neomutt = {
+  programs.password-store = {
     enable = true;
   };
 }

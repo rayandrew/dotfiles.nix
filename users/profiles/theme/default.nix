@@ -6,7 +6,8 @@
 }:
 
 {
-  colorscheme = inputs.nix-colors.colorSchemes.dracula;
+  colorscheme = inputs.nix-colors.colorSchemes.horizon-dark;
+  # cliColorscheme = inputs.nix-colors.colorSchemes.horizon-dark;
 
   imports = [ ./xresources.nix ];
 }

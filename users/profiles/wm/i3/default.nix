@@ -35,35 +35,36 @@ in
         bars = [
           {
             colors = {
-              background = "$base00";
-              separator = "$base01";
-              statusline = "$base04";
-              focusedWorkspace = {
-                border = "$base05";
-                background = "$base0D";
-                text = "$base00";
-              };
-              activeWorkspace = {
-                border = "$base05";
-                background = "$base0D";
-                text = "$base00";
-              };
-              inactiveWorkspace = {
-                border = "$base03";
-                background = "$base01";
-                text = "$base05";
-              };
-              urgentWorkspace = {
-                border = "$base08";
-                background = "$base08";
-                text = "$base00";
-              };
-              bindingMode = {
-                border = "$base00";
-                background = "$base0A";
-                text = "$base00";
-              };
+              #             background = "$base00";
+              #             separator = "$base01";
+              #             statusline = "$base04";
+              #              focusedWorkspace = {
+              #                border = "$base05";
+              #                background = "$base0D";
+              #                text = "$base00";
+              #              };
+              #              activeWorkspace = {
+              #                border = "$base05";
+              #                background = "$base0D";
+              #                text = "$base00";
+              #              };
+              #              inactiveWorkspace = {
+              #                border = "$base03";
+              #                background = "$base01";
+              #                text = "$base05";
+              #              };
+              #              urgentWorkspace = {
+              #                border = "$base08";
+              #                background = "$base08";
+              #                text = "$base00";
+              #              };
+              #              bindingMode = {
+              #                border = "$base00";
+              #                background = "$base0A";
+              #                text = "$base00";
+              #              };
             };
+            statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ${config.home.homeDirectory}/.config/i3status-rust/config.toml";
           }
         ];
       };
@@ -88,12 +89,12 @@ in
 
         # Basic color configuration using the Base16 variables for windows and borders.
         # Property Name         Border  BG      Text    Indicator Child Border
-        client.focused          $base05 $base00 $base04 $base0D $base0C
-        client.focused_inactive $base01 $base01 $base05 $base03 $base01
-        client.unfocused        $base01 $base00 $base05 $base01 $base01
-        client.urgent           $base08 $base08 $base00 $base08 $base08
-        client.placeholder      $base00 $base00 $base05 $base00 $base00
-        client.background       $base07
+        # client.focused          $base05 $base00 $base04 $base0D $base0C
+        # client.focused_inactive $base01 $base01 $base05 $base03 $base01
+        # client.unfocused        $base01 $base00 $base05 $base01 $base01
+        # client.urgent           $base08 $base08 $base00 $base08 $base08
+        # client.placeholder      $base00 $base00 $base05 $base00 $base00
+        # client.background       $base07
       '';
     };
   };
@@ -104,4 +105,47 @@ in
     i3blocks
     dmenu
   ];
+
+  programs.i3status-rust = {
+    enable = true;
+
+    bars.type = {
+      theme = "solarized-dark";
+      blocks = [
+        {
+          block = "disk_space";
+          path = "/";
+          alias = "/";
+          info_type = "available";
+          unit = "GB";
+          interval = 60;
+          warning = 20.0;
+          alert = 10.0;
+        }
+        {
+          block = "memory";
+          display_type = "memory";
+          format_mem = "{mem_used_percents}";
+          format_swap = "{swap_used_percents}";
+        }
+        {
+          block = "cpu";
+          interval = 1;
+        }
+        {
+          block = "load";
+          interval = 1;
+          format = "{1m}";
+        }
+        {
+          block = "sound";
+        }
+        {
+          block = "time";
+          interval = 60;
+          format = "%a %d/%m %R";
+        }
+      ];
+    };
+  };
 }

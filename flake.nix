@@ -38,6 +38,8 @@
       naersk.url = "github:nmattia/naersk";
       naersk.inputs.nixpkgs.follows = "latest";
 
+      emacs.url = "github:nix-community/emacs-overlay";
+
       nixos-hardware.url = "github:nixos/nixos-hardware";
 
       nix-colors.url = "github:misterio77/nix-colors";
@@ -59,6 +61,7 @@
     , bud
     , nixos
     , home
+    , emacs
     , nixos-hardware
     , nix-colors
     , nur
@@ -71,13 +74,22 @@
       {
         inherit self inputs;
 
-        channelsConfig = { allowUnfree = true; };
+        supportedSystems = [
+          "aarch64-linux"
+          "x86_64-linux"
+        ];
+
+        channelsConfig = {
+          allowUnfree = true;
+          allowUnsupportedSystem = true;
+        };
 
         channels = {
           nixos = {
             imports = [ (digga.lib.importOverlays ./overlays) ];
             overlays = [
               digga.overlays.patchedNix
+              emacs.overlay
               nur.overlay
               agenix.overlay
               nvfetcher.overlay
@@ -156,11 +168,24 @@
           imports = [ (digga.lib.importExportableModules ./users/modules) ];
           modules = [
             inputs.nix-colors.homeManagerModule
+            ({ ... }:
+              let
+                nur-no-pkgs = import nur {
+                  nurpkgs = import nixos { system = "x86_64-linux"; };
+                };
+              in
+              {
+                imports = [
+                  nur-no-pkgs.repos.rycee.hmModules.emacs-init
+                  nur-no-pkgs.repos.rycee.hmModules.emacs-notmuch
+                ];
+              })
           ];
           importables = rec {
             profiles = digga.lib.rakeLeaves ./users/profiles // {
               browser = digga.lib.rakeLeaves ./users/profiles/browser;
               email = digga.lib.rakeLeaves ./users/profiles/email;
+              editor = digga.lib.rakeLeaves ./users/profiles/editor;
               terminal = digga.lib.rakeLeaves ./users/profiles/terminal;
               wm = digga.lib.rakeLeaves ./users/profiles/wm;
             };
@@ -171,7 +196,9 @@
                 utilities
                 theme
                 fonts
-                email.neomutt
+                password
+                email.cli
+                # editor.emacs
               ];
               desktop = [
                 wm.i3

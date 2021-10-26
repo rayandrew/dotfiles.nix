@@ -5,8 +5,6 @@
 , ...
 }:
 
-let inherit (builtins) readFile;
-in
 {
   age.secrets.user-pw.file = "${self}/secrets/user-pw.age";
 
@@ -19,7 +17,7 @@ in
     home = "/home/rayandrew";
     uid = 1000;
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" ];
     passwordFile = config.age.secrets.user-pw.path;
   };
 }
