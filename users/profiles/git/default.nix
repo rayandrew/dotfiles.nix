@@ -6,7 +6,7 @@
     userEmail = "raydreww@gmail.com";
 
     signing = {
-      key = "DB6291D746A44D86502B8EF83DF30C0071130B7D";
+      key = "3DF30C0071130B7D";
       signByDefault = true;
     };
 
