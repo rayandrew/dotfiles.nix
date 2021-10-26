@@ -4,6 +4,7 @@ let
   mod = "Mod4";
   alt = "Mod1";
   colors = config.colorscheme.colors;
+  barName = "default";
 in
 {
   xsession = {
@@ -64,7 +65,7 @@ in
               #                text = "$base00";
               #              };
             };
-            statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ${config.home.homeDirectory}/.config/i3status-rust/config.toml";
+            statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ${config.home.homeDirectory}/.config/i3status-rust/config-${barName}.toml";
           }
         ];
       };
@@ -109,8 +110,9 @@ in
   programs.i3status-rust = {
     enable = true;
 
-    bars.type = {
-      theme = "solarized-dark";
+    bars."${barName}" = {
+      theme = "plain";
+      icons = "awesome";
       blocks = [
         {
           block = "disk_space";
@@ -136,6 +138,11 @@ in
           block = "load";
           interval = 1;
           format = "{1m}";
+        }
+        {
+          block = "battery";
+          interval = 10;
+          format = "{percentage:6#100} {percentage} {time}";
         }
         {
           block = "sound";
