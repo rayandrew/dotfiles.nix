@@ -204,6 +204,7 @@
                 wm.i3
                 terminal.urxvt
                 browser.brave
+                editor.vscode
               ];
             };
           };
