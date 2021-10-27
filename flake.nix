@@ -198,7 +198,7 @@
                 fonts
                 password
                 email.cli
-                # editor.emacs
+                editor.emacs
               ];
               desktop = [
                 wm.i3
