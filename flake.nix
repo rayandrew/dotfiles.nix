@@ -188,6 +188,7 @@
               editor = digga.lib.rakeLeaves ./users/profiles/editor;
               terminal = digga.lib.rakeLeaves ./users/profiles/terminal;
               wm = digga.lib.rakeLeaves ./users/profiles/wm;
+              comms = digga.lib.rakeLeaves ./users/profiles/communications;
             };
             suites = with profiles; rec {
               base = [
@@ -205,6 +206,7 @@
                 terminal.urxvt
                 browser.brave
                 editor.vscode
+                comms.skype
               ];
             };
           };

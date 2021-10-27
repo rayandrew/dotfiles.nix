@@ -145,5 +145,18 @@ in
     '';
   };
 
-  services.earlyoom.enable = true;
+  services = {
+    earlyoom = {
+      enable = true;
+    };
+    gnome = {
+      gnome-keyring = {
+        enable = true;
+      };
+    };
+  };
+
+  security = {
+    pam.services.lightdm.enableGnomeKeyring = true;
+  };
 }

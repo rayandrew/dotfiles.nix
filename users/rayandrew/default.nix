@@ -17,7 +17,7 @@
     home = "/home/rayandrew";
     uid = 1000;
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "video" "input" ];
     passwordFile = config.age.secrets.user-pw.path;
   };
 }
