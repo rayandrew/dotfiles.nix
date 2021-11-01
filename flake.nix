@@ -85,6 +85,14 @@
         };
       };
 
+      nix-doom-emacs = {
+        url = "github:vlaci/nix-doom-emacs";
+        inputs = {
+          nixpkgs.follows = "nixos";
+          flake-utils.follows = "digga/flake-utils-plus/flake-utils";
+        };
+      };
+
       nixos-hardware = {
         url = "github:nixos/nixos-hardware";
       };
@@ -107,6 +115,7 @@
     , nixos-hardware
     , nix-colors
     , nur
+    , nix-doom-emacs
     , agenix
     , nvfetcher
     , deploy

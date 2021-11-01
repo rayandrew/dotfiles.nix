@@ -39,7 +39,8 @@ in
         scm.svn
       ];
       desktop = [
-        wm.i3
+        display.i3
+        display.xrandr
         terminal.urxvt
         terminal.kitty
         browser.brave
