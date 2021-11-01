@@ -5,34 +5,45 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" "sdhci_pci" ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ]; 
-
-  boot.initrd.luks.devices."root" = {
-    device = "/dev/disk/by-uuid/6a40e0cc-5171-4cc5-a044-547eff5745b4";
-    preLVM = true;
-    allowDiscards = true;
+  boot = {
+    initrd = {
+      availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" "sdhci_pci" ];
+      kernelModules = [ "dm-snapshot" ];
+      luks.devices = {
+        "root" = {
+          device = "/dev/disk/by-uuid/6a40e0cc-5171-4cc5-a044-547eff5745b4";
+          preLVM = true;
+          allowDiscards = true;
+        };
+      };
+    };
+    kernelModules = [ "kvm-intel" ];
+    extraModulePackages = [ ];
+    extraModprobeConfig = "options kvm_intel nested=1";
   };
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/5e03baa1-cc14-4683-9133-cd11ad949696";
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/5e03baa1-cc14-4683-9133-cd11ad949696";
       fsType = "ext4";
       options = [ "noatime" "nodiratime" "discard" ];
     };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/4219-554A";
+    "/boot" = {
+      device = "/dev/disk/by-uuid/4219-554A";
       fsType = "vfat";
     };
+  };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/26fca5ec-d25c-4f54-a45b-34a08a60fc9c"; }
-    ];
+  swapDevices = [
+    {
+      device = "/dev/disk/by-uuid/26fca5ec-d25c-4f54-a45b-34a08a60fc9c";
+    }
+  ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }

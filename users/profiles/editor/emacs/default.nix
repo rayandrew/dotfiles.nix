@@ -1,25 +1,17 @@
 { config
 , lib
-, nixpkgs
-, nur
+, nixos
 , ...
 }:
 
 
 # Config is taken from @rycee
 # https://gitlab.com/rycee/configurations/-/blob/master/user/emacs.nix
-
-let
-  a = { };
-  #nur-no-pkgs = import nur {
-  # nurpkgs = import nixpkgs { system = "x86_64-linux"; };
-  #};
-in
 {
-  imports = [
-    #nur-no-pkgs.repos.rycee.hmModules.emacs-init
-    #nur-no-pkgs.repos.rycee.hmModules.emacs-notmuch
-  ];
+  # imports = [
+  #   nur-no-pkgs.repos.rycee.hmModules.emacs-init
+  #   nur-no-pkgs.repos.rycee.hmModules.emacs-notmuch
+  # ];
 
   programs.emacs = {
     enable = true;

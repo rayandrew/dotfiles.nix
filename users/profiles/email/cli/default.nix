@@ -47,7 +47,7 @@
           '';
           showSignature = "append";
         };
-        passwordCommand = "${pkgs.pass}/bin/pass show contact@rayandrew.me";
+        passwordCommand = "${pkgs.pass}/bin/pass show email/contact@rayandrew.me";
         smtp = {
           host = "smtp.gmail.com";
         };
@@ -55,7 +55,7 @@
           host = "imap.gmail.com";
         };
         gpg = {
-          key = "4BCB37459D620C03E1C8DA27FD1A6572CF32DC39";
+          key = "DB6291D746A44D86502B8EF83DF30C0071130B7D";
           signByDefault = true;
         };
         mbsync = {
@@ -108,7 +108,7 @@
           '';
           showSignature = "append";
         };
-        passwordCommand = "${pkgs.pass}/bin/pass show raydreww@gmail.com";
+        passwordCommand = "${pkgs.pass}/bin/pass show email/raydreww@gmail.com";
       };
     };
   };

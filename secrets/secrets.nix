@@ -13,6 +13,11 @@ let
   allKeys = users ++ hosts;
 in
 {
+  # user
   "root-pw.age".publicKeys = allKeys;
   "user-pw.age".publicKeys = allKeys;
+
+  # spotify
+  "spotify-id.age".publicKeys = allKeys;
+  "spotify-secret.age".publicKeys = allKeys;
 }

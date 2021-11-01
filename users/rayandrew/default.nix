@@ -2,6 +2,7 @@
 , hmUsers
 , age
 , config
+, home
 , ...
 }:
 
@@ -17,7 +18,20 @@
     home = "/home/rayandrew";
     uid = 1000;
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" "video" "input" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "audio"
+      "video"
+      "input"
+      "vboxusers"
+    ];
     passwordFile = config.age.secrets.user-pw.path;
+  };
+
+  users.extraGroups = {
+    vboxusers = {
+      members = [ "rayandrew" ];
+    };
   };
 }

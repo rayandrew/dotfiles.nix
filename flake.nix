@@ -1,5 +1,5 @@
 {
-  description = "A highly structured configuration database.";
+  description = "Ray Andrew's Poor Configuration";
 
   nixConfig.extra-experimental-features = "nix-command flakes ca-references";
   nixConfig.extra-substituters = "https://nrdxp.cachix.org https://nix-community.cachix.org";
@@ -7,52 +7,94 @@
 
   inputs =
     {
-      nixos.url = "github:nixos/nixpkgs/release-21.05";
-      latest.url = "github:nixos/nixpkgs/nixos-unstable";
+      nixos = {
+        # url = "github:nixos/nixpkgs/release-21.05";
+        url = "github:nixos/nixpkgs/nixos-unstable";
+      };
 
-      digga.url = "github:divnix/digga";
-      digga.inputs.nixpkgs.follows = "nixos";
-      digga.inputs.nixlib.follows = "nixos";
-      digga.inputs.home-manager.follows = "home";
+      latest = {
+        url = "github:nixos/nixpkgs/nixos-unstable";
+      };
 
-      bud.url = "github:divnix/bud";
-      bud.inputs.nixpkgs.follows = "nixos";
-      bud.inputs.devshell.follows = "digga/devshell";
+      blank = {
+        url = "github:divnix/blank";
+      };
 
-      home.url = "github:nix-community/home-manager/release-21.05";
-      home.inputs.nixpkgs.follows = "nixos";
+      digga = {
+        url = "github:divnix/digga";
+        inputs = {
+          nixpkgs.follows = "nixos";
+          nixlib.follows = "nixos";
+          home-manager.follows = "home";
+        };
+      };
 
-      darwin.url = "github:LnL7/nix-darwin";
-      darwin.inputs.nixpkgs.follows = "latest";
+      bud = {
+        url = "github:divnix/bud";
+        inputs = {
+          nixpkgs.follows = "nixos";
+          devshell.follows = "digga/devshell";
+        };
+      };
 
-      deploy.follows = "digga/deploy";
+      home = {
+        url = "github:nix-community/home-manager/release-21.05";
+        inputs = {
+          nixpkgs.follows = "nixos";
+        };
+      };
 
-      agenix.url = "github:ryantm/agenix";
-      agenix.inputs.nixpkgs.follows = "latest";
+      darwin = {
+        url = "github:LnL7/nix-darwin";
+        inputs = {
+          nixpkgs.follows = "latest";
+        };
+      };
 
-      nvfetcher.url = "github:berberman/nvfetcher";
-      nvfetcher.inputs.nixpkgs.follows = "latest";
-      nvfetcher.inputs.flake-compat.follows = "digga/deploy/flake-compat";
-      nvfetcher.inputs.flake-utils.follows = "digga/flake-utils-plus/flake-utils";
+      deploy = {
+        follows = "digga/deploy";
+      };
 
-      naersk.url = "github:nmattia/naersk";
-      naersk.inputs.nixpkgs.follows = "latest";
+      agenix = {
+        url = "github:ryantm/agenix";
+        inputs = {
+          nixpkgs.follows = "latest";
+        };
+      };
 
-      emacs.url = "github:nix-community/emacs-overlay";
+      nvfetcher = {
+        url = "github:berberman/nvfetcher";
+        inputs = {
+          nixpkgs.follows = "nixos";
+          flake-compat.follows = "digga/deploy/flake-compat";
+          flake-utils.follows = "digga/flake-utils-plus/flake-utils";
+        };
+      };
 
-      nixos-hardware.url = "github:nixos/nixos-hardware";
+      naersk = {
+        url = "github:nmattia/naersk";
+        inputs = {
+          nixpkgs.follows = "nixos";
+        };
+      };
 
-      nix-colors.url = "github:misterio77/nix-colors";
-      nix-colors.inputs.nixpkgs.follows = "latest";
+      emacs = {
+        url = "github:nix-community/emacs-overlay";
+        inputs = {
+          nixpkgs.follows = "nixos";
+        };
+      };
 
-      # start ANTI CORRUPTION LAYER
-      # remove after https://github.com/NixOS/nix/pull/4641
-      nixpkgs.follows = "nixos";
-      nixlib.follows = "digga/nixlib";
-      blank.follows = "digga/blank";
-      flake-utils-plus.follows = "digga/flake-utils-plus";
-      flake-utils.follows = "digga/flake-utils";
-      # end ANTI CORRUPTION LAYER
+      nixos-hardware = {
+        url = "github:nixos/nixos-hardware";
+      };
+
+      nix-colors = {
+        url = "github:misterio77/nix-colors";
+        inputs = {
+          nixpkgs.follows = "latest";
+        };
+      };
     };
 
   outputs =
@@ -73,11 +115,6 @@
     digga.lib.mkFlake
       {
         inherit self inputs;
-
-        supportedSystems = [
-          "aarch64-linux"
-          "x86_64-linux"
-        ];
 
         channelsConfig = {
           allowUnfree = true;
@@ -139,7 +176,6 @@
           };
           importables = rec {
             profiles = digga.lib.rakeLeaves ./profiles // {
-              hardwares = digga.lib.rakeLeaves ./profiles/hardwares;
               users = digga.lib.rakeLeaves ./users;
             };
             suites = with profiles; rec {
@@ -159,64 +195,13 @@
                 cachix
                 display
                 packages
+                virtualizations.virtualbox
               ];
             };
           };
         };
 
-        home = {
-          imports = [ (digga.lib.importExportableModules ./users/modules) ];
-          modules = [
-            inputs.nix-colors.homeManagerModule
-            ({ ... }:
-              let
-                nur-no-pkgs = import nur {
-                  nurpkgs = import nixos { system = "x86_64-linux"; };
-                };
-              in
-              {
-                imports = [
-                  nur-no-pkgs.repos.rycee.hmModules.emacs-init
-                  nur-no-pkgs.repos.rycee.hmModules.emacs-notmuch
-                ];
-              })
-          ];
-          importables = rec {
-            profiles = digga.lib.rakeLeaves ./users/profiles // {
-              browser = digga.lib.rakeLeaves ./users/profiles/browser;
-              email = digga.lib.rakeLeaves ./users/profiles/email;
-              editor = digga.lib.rakeLeaves ./users/profiles/editor;
-              terminal = digga.lib.rakeLeaves ./users/profiles/terminal;
-              wm = digga.lib.rakeLeaves ./users/profiles/wm;
-              comms = digga.lib.rakeLeaves ./users/profiles/communications;
-            };
-            suites = with profiles; rec {
-              base = [
-                direnv
-                git
-                utilities
-                theme
-                fonts
-                password
-                email.cli
-                editor.emacs
-              ];
-              desktop = [
-                wm.i3
-                terminal.urxvt
-                browser.brave
-                editor.vscode
-                comms.skype
-              ];
-            };
-          };
-          users = {
-            rayandrew = { suites, ... }: {
-              imports = suites.base
-              ++ suites.desktop;
-            };
-          }; # digga.lib.importers.rakeLeaves ./users/hm;
-        };
+        home = ./users;
 
         devshell = ./shell;
 

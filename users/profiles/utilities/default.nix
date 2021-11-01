@@ -13,6 +13,8 @@ in
     xclip
     xorg.xev
     xorg.xbacklight
+    file
+    arandr
   ];
 
   services.sxhkd = {
@@ -24,5 +26,11 @@ in
       "XF86MonBrightnessDown" = "${pkgs.light}/bin/light -U 10";
       "XF86MonBrightnessUp" = "${pkgs.light}/bin/light -A 10";
     };
+  };
+
+  home.keyboard = {
+    options = [
+      "ctrl:nocaps"
+    ];
   };
 }
