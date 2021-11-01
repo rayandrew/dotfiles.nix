@@ -37,6 +37,7 @@ in
         editor.emacs
         scm.git
         scm.svn
+        developments.latex
       ];
       desktop = [
         display.i3
