@@ -71,6 +71,13 @@
         };
       };
 
+      nix-prefetch-github = {
+        url = "github:seppeljordan/nix-prefetch-github";
+        inputs = {
+          flake-utils.follows = "digga/flake-utils-plus/flake-utils";
+        };
+      };
+
       naersk = {
         url = "github:nmattia/naersk";
         inputs = {

@@ -23,8 +23,8 @@
   company           ; the ultimate code completion backend
   ;;helm              ; the *other* search engine for love and life
   ;;ido               ; the other *other* search engine...
-  ;;ivy               ; a search engine for love and life
-  vertico           ; the search engine of the future
+  ivy               ; a search engine for love and life
+  ;;vertico           ; the search engine of the future
 
   :ui
   ;;deft              ; notational velocity for Emacs
@@ -34,7 +34,7 @@
   (emoji +unicode)  ; 🙂
   hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
   ;;hydra
-  ;;indent-guides     ; highlighted indent columns
+  indent-guides     ; highlighted indent columns
   ligatures         ; ligatures and symbols to make your code pretty again
   ;;minimap           ; show a map of the code on the side
   modeline          ; snazzy, Atom-inspired modeline, plus API
@@ -93,7 +93,7 @@
   (eval +overlay)     ; run code, run (also, repls)
   ;;gist              ; interacting with github gists
   lookup              ; navigate your code and its documentation
-  ;;lsp               ; M-x vscode
+  lsp               ; M-x vscode
   magit             ; a git porcelain for Emacs
   make              ; run make tasks from Emacs
   ;;pass              ; password manager for nerds
@@ -107,7 +107,7 @@
 
   :os
   (:if IS-MAC macos)  ; improve compatibility with macOS
-  ;;tty               ; improve the terminal Emacs experience
+  tty               ; improve the terminal Emacs experience
 
   :lang
   ;;agda              ; types of types of types of types...
@@ -137,7 +137,7 @@
   ;;idris             ; a language you can depend on
   ;;json              ; At least it ain't XML
   ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
-  ;;javascript        ; all(hope(abandon(ye(who(enter(here))))))
+  (javascript +lsp)        ; all(hope(abandon(ye(who(enter(here))))))
   ;;julia             ; a better, faster MATLAB
   ;;kotlin            ; a better, slicker Java(Script)
   latex             ; writing papers in Emacs has never been so fun

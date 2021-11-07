@@ -1,19 +1,19 @@
 { config, lib, pkgs, ... }:
 
 let
-  mustache = template-attrs: name: src:
-    pkgs.stdenv.mkDerivation (
-      {
-        name = "${name}-${template-attrs.scheme-slug}";
-        inherit src;
-        data = pkgs.writeText "${name}-data" (builtins.toJSON template-attrs);
-        phases = [ "buildPhase" ];
-        buildPhase = ''
-          ${pkgs.mustache-go}/bin/mustache $data $src > $out
-        '';
-        allowSubstitutes = false; # will never be in cache
-      }
-    );
+  # mustache = template-attrs: name: src:
+  #   pkgs.stdenv.mkDerivation (
+  #     {
+  #       name = "${name}-${template-attrs.scheme-slug}";
+  #       inherit src;
+  #       data = pkgs.writeText "${name}-data" (builtins.toJSON template-attrs);
+  #       phases = [ "buildPhase" ];
+  #       buildPhase = ''
+  #         ${pkgs.mustache-go}/bin/mustache $data $src > $out
+  #       '';
+  #       allowSubstitutes = false; # will never be in cache
+  #     }
+  #   );
   colors = config.colorscheme.colors;
 in
 {
@@ -35,39 +35,39 @@ in
     #define base0E #${colors.base0E}
     #define base0F #${colors.base0F}
 
-    *foreground:   base05
+    *.foreground:   base05
     #ifdef background_opacity
-    *background:   [background_opacity]base00
+    *.background:   [background_opacity]base00
     #else
-    *background:   base00
+    *.background:   base00
     #endif
-    *cursorColor:  base05
+    *.cursorColor:  base05
 
-    *color0:       base00
-    *color1:       base08
-    *color2:       base0B
-    *color3:       base0A
-    *color4:       base0D
-    *color5:       base0E
-    *color6:       base0C
-    *color7:       base05
+    *.color0:       base00
+    *.color1:       base08
+    *.color2:       base0B
+    *.color3:       base0A
+    *.color4:       base0D
+    *.color5:       base0E
+    *.color6:       base0C
+    *.color7:       base05
 
-    *color8:       base03
-    *color9:       base08
-    *color10:      base0B
-    *color11:      base0A
-    *color12:      base0D
-    *color13:      base0E
-    *color14:      base0C
-    *color15:      base07
+    *.color8:       base03
+    *.color9:       base08
+    *.color10:      base0B
+    *.color11:      base0A
+    *.color12:      base0D
+    *.color13:      base0E
+    *.color14:      base0C
+    *.color15:      base07
 
     ! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
     ! use 'shell' template to set these if necessary
-    *color16:      base09
-    *color17:      base0F
-    *color18:      base01
-    *color19:      base02
-    *color20:      base04
-    *color21:      base06
+    *.color16:      base09
+    *.color17:      base0F
+    *.color18:      base01
+    *.color19:      base02
+    *.color20:      base04
+    *.color21:      base06
   '';
 }

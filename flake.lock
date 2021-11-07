@@ -228,11 +228,11 @@
     },
     "emacs": {
       "locked": {
-        "lastModified": 1635731733,
-        "narHash": "sha256-Khdr+uik4N+zMe3dDqla3TPCscqhjV4JF5go/fgiH9o=",
+        "lastModified": 1636160430,
+        "narHash": "sha256-02F0rBBUVPHif14A4H+dgVIG/FeD+YkAvYJS2QhTmfg=",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "68de106e6f1fc319bf0a879aed93bd693bd94dd6",
+        "rev": "85e0c0226385da607b04c1c13a6f9c1c60378191",
         "type": "github"
       },
       "original": {
@@ -443,11 +443,11 @@
     },
     "latest_2": {
       "locked": {
-        "lastModified": 1635403963,
-        "narHash": "sha256-0actzfzBAXvvDJ/EvPSGbtCPXUwSObQrcq0RpsPWZgA=",
+        "lastModified": 1635844945,
+        "narHash": "sha256-tZcL307dj28jgEU1Wdn+zwG9neyW0H2+ZjdVhvJxh9g=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "2deb07f3ac4eeb5de1c12c4ba2911a2eb1f6ed61",
+        "rev": "b67e752c29f18a0ca5534a07661366d6a2c2e649",
         "type": "github"
       },
       "original": {
@@ -481,11 +481,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1635444951,
-        "narHash": "sha256-1y3YkERwoYDIZjGow7HLAR8K3C/9VBPCBy8VpftMPsM=",
+        "lastModified": 1636103400,
+        "narHash": "sha256-6DRg/0P9oT5I/V02sloqGVHf8F6f+7DFoBZNPdr+hOI=",
         "owner": "nmattia",
         "repo": "naersk",
-        "rev": "0d2ce479df4633dbeb53a8ea96e5098ed37fbcc6",
+        "rev": "074d81b1a45145f076b2adf93184073fc9615397",
         "type": "github"
       },
       "original": {
@@ -518,11 +518,11 @@
     },
     "nix-colors": {
       "locked": {
-        "lastModified": 1633318162,
-        "narHash": "sha256-rr6BMT4o66KWU9yXVv9W/yB/zMCVZC+zb4OvRftc/h8=",
+        "lastModified": 1635914765,
+        "narHash": "sha256-qGUaHsPeaKh7QwzPzCVdfkXCFjmvIYGAMbZd3ljC4t0=",
         "owner": "misterio77",
         "repo": "nix-colors",
-        "rev": "182b4b8709b8ffe4e9774a4c5d6877bf6bb9a21c",
+        "rev": "cc72b70e25a5d68cdbcfd5d8292cd8cc3f45d206",
         "type": "github"
       },
       "original": {
@@ -573,6 +573,29 @@
         "type": "github"
       }
     },
+    "nix-prefetch-github": {
+      "inputs": {
+        "flake-utils": [
+          "digga",
+          "flake-utils-plus",
+          "flake-utils"
+        ],
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1632395183,
+        "narHash": "sha256-ivS570dOWuRwL7LnlZ0k0WTkc0lCnQDHvLhU07SrACc=",
+        "owner": "seppeljordan",
+        "repo": "nix-prefetch-github",
+        "rev": "907844ec302c598d9ab0c9cb0474c763b10d55e9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "seppeljordan",
+        "repo": "nix-prefetch-github",
+        "type": "github"
+      }
+    },
     "nix-straight": {
       "flake": false,
       "locked": {
@@ -592,11 +615,11 @@
     },
     "nixos": {
       "locked": {
-        "lastModified": 1635403963,
-        "narHash": "sha256-0actzfzBAXvvDJ/EvPSGbtCPXUwSObQrcq0RpsPWZgA=",
+        "lastModified": 1635844945,
+        "narHash": "sha256-tZcL307dj28jgEU1Wdn+zwG9neyW0H2+ZjdVhvJxh9g=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "2deb07f3ac4eeb5de1c12c4ba2911a2eb1f6ed61",
+        "rev": "b67e752c29f18a0ca5534a07661366d6a2c2e649",
         "type": "github"
       },
       "original": {
@@ -644,6 +667,19 @@
         "owner": "nixos",
         "repo": "nixos-hardware",
         "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1631706269,
+        "narHash": "sha256-KVaS+GC3gz/G5qL09ZUnq4gpQR38C+AWuXJ1ftirgK0=",
+        "path": "/nix/store/afvflyac1s5f1y9sr7pvyxz644jl04k8-source",
+        "rev": "8dd8bd8be74879f9f7919b16a4cb5ab2a75f18e5",
+        "type": "path"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
       }
     },
     "nose": {
@@ -845,6 +881,7 @@
         "naersk": "naersk",
         "nix-colors": "nix-colors",
         "nix-doom-emacs": "nix-doom-emacs",
+        "nix-prefetch-github": "nix-prefetch-github",
         "nixos": "nixos",
         "nixos-hardware": "nixos-hardware",
         "nur": "nur",

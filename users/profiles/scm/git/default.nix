@@ -1,3 +1,10 @@
+{ self
+, config
+, lib
+, pkgs
+, ...
+}:
+
 {
   programs.git = {
     enable = true;
@@ -50,4 +57,13 @@
       bdm = "!git branch --merged | grep -v '*' | xargs -n 1 git branch -d";
     };
   };
+
+  home.packages = with pkgs; [
+    gitAndTools.gh
+    gitAndTools.git-open
+    gitAndTools.diff-so-fancy
+    gitAndTools.git-crypt
+    gitAndTools.gitflow
+    act
+  ];
 }

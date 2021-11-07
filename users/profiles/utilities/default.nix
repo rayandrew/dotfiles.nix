@@ -15,7 +15,18 @@ in
     xorg.xbacklight
     file
     arandr
+    nix-prefetch-github
+    fasd
   ];
+
+  programs.exa = {
+    enable = true;
+    enableAliases = true;
+  };
+
+  programs.htop = {
+    enable = true;
+  };
 
   services.sxhkd = {
     enable = true;
@@ -26,6 +37,13 @@ in
       "XF86MonBrightnessDown" = "${pkgs.light}/bin/light -U 10";
       "XF86MonBrightnessUp" = "${pkgs.light}/bin/light -A 10";
     };
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    enableFishIntegration = true;
   };
 
   home.keyboard = {

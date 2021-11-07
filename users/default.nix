@@ -38,15 +38,21 @@ in
         scm.git
         scm.svn
         developments.latex
+        shells.fish
+        shells.tmux
       ];
       desktop = [
         display.i3
+        display.rofi
         display.xrandr
         terminal.urxvt
         terminal.kitty
+        terminal.st
         browser.brave
+        browser.google-chrome
         editor.vscode
         communications.skype
+        communications.slack
         media.spotify
       ];
     };

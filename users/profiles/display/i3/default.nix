@@ -5,6 +5,8 @@ let
   alt = "Mod1";
   colors = config.colorscheme.colors;
   barName = "default";
+  # term = "${pkgs.st}/bin/st";
+  term = "st -e ${pkgs.fish}/bin/fish";
 in
 {
   xsession = {
@@ -15,10 +17,12 @@ in
       config = {
         modifier = mod;
         keybindings = lib.mkOptionDefault {
+          "${mod}+d" = "exec --no-startup-id \"${pkgs.rofi}/bin/rofi -show drun -modi run,drun,window\"";
+
           "${alt}+F4" = "kill";
 
-          "${mod}+Return" = "exec ${pkgs.rxvt-unicode}/bin/urxvt";
-          "${mod}+Shift+Return" = "exec ${pkgs.rxvt-unicode}/bin/urxvt";
+          "${mod}+Return" = "exec ${term}";
+          "${mod}+Shift+Return" = "exec ${term} -c \"tmux attach || tmux new-session\"";
 
           "${mod}+h" = "focus left";
           "${mod}+j" = "focus down";
@@ -103,7 +107,7 @@ in
   home.packages = with pkgs; [
     i3
     i3lock-fancy
-    i3blocks
+    # i3blocks
     dmenu
   ];
 
