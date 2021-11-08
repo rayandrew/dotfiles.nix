@@ -15,6 +15,11 @@ in
       enable = true;
       # package = pkgs.i3-gaps;
       config = {
+        fonts = {
+          names = [ "envypn" ];
+          style = "Regular";
+          size = 11.0;
+        };
         modifier = mod;
         keybindings = lib.mkOptionDefault {
           "${mod}+d" = "exec --no-startup-id \"${pkgs.rofi}/bin/rofi -show drun -modi run,drun,window\"";
@@ -39,6 +44,11 @@ in
         };
         bars = [
           {
+            fonts = {
+              names = [ "envypn" ];
+              style = "Regular";
+              size = 11.0;
+            };
             colors = {
               #             background = "$base00";
               #             separator = "$base01";

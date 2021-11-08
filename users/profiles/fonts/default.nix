@@ -18,8 +18,9 @@
     source-serif-pro
     inconsolata
     hack-font
-    tamzen
+    # tamzen
     roboto
     iosevka
+    envypn-font
   ];
 }

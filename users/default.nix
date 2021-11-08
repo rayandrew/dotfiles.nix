@@ -53,6 +53,7 @@ in
         editor.vscode
         communications.skype
         communications.slack
+        communications.discord
         media.spotify
       ];
     };
