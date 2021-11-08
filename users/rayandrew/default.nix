@@ -26,6 +26,7 @@
       "input"
       "vboxusers"
       "docker"
+      "podman"
     ];
     passwordFile = config.age.secrets.user-pw.path;
   };

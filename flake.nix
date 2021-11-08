@@ -213,6 +213,8 @@
                 packages
                 virtualizations.virtualbox
                 virtualizations.docker
+                virtualizations.podman
+                virtualizations.arion
               ];
             };
           };
