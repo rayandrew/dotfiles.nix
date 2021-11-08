@@ -25,6 +25,7 @@
       "video"
       "input"
       "vboxusers"
+      "docker"
     ];
     passwordFile = config.age.secrets.user-pw.path;
   };

@@ -212,6 +212,7 @@
                 display
                 packages
                 virtualizations.virtualbox
+                virtualizations.docker
               ];
             };
           };
