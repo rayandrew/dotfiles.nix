@@ -206,11 +206,12 @@
                 hardwares.bluetooth
                 hardwares.backlight
                 hardwares.sensors
+                utilities
               ];
               personal = [
                 cachix
                 display
-                packages
+                packages.firejail
                 virtualizations.virtualbox
                 virtualizations.docker
                 virtualizations.podman

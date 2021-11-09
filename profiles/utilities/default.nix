@@ -33,5 +33,8 @@
       enable = true;
       enableSSHSupport = true;
     };
+    firejail = {
+      enable = true;
+    };
   };
 }
