@@ -17,6 +17,7 @@ in
     arandr
     nix-prefetch-github
     fasd
+    audio-recorder
   ];
 
   programs.exa = {

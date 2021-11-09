@@ -45,6 +45,11 @@
     interfaces = {
       wlp0s20f3.useDHCP = true;
     };
+    firewall = {
+      allowedTCPPorts = [
+        57621 # spotify
+      ];
+    };
   };
 
   time.timeZone = "America/Chicago";
