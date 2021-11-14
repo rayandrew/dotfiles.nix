@@ -123,6 +123,7 @@
         plugin = tmuxPlugins.resurrect;
         extraConfig = "set -g @resurrect-strategy-nvim 'session'";
       }
+      tmuxPlugins.nord
       # {
       #   plugin = tmuxPlugins.continuum;
       #   extraConfig = ''

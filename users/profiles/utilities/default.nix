@@ -18,6 +18,10 @@ in
     nix-prefetch-github
     fasd
     audio-recorder
+
+    evince
+    meld
+    pavucontrol
   ];
 
   programs.exa = {
