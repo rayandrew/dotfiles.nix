@@ -22,6 +22,8 @@ in
     evince
     meld
     pavucontrol
+
+    pdftk
   ];
 
   programs.exa = {

@@ -57,3 +57,5 @@
 
 ;; for better navigation in word wrap
 (setq evil-respect-visual-line-mode t)
+
+(pdf-tools-install)
