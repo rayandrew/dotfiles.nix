@@ -48,5 +48,9 @@
     shellInit = ''
       ${pkgs.starship}/bin/starship init fish | source
     '';
+
+    interactiveShellInit = ''
+      fish_add_path ${config.home.homeDirectory}/.npm-global/bin
+    '';
   };
 }

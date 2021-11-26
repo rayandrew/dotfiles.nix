@@ -24,6 +24,11 @@ in
     pavucontrol
 
     pdftk
+
+    python39
+    gcc
+
+    nodejs
   ];
 
   programs.exa = {

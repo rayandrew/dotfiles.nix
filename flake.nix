@@ -212,6 +212,7 @@
                 cachix
                 display
                 packages.firejail
+                packages.evolution
                 virtualizations.virtualbox
                 virtualizations.docker
                 virtualizations.podman

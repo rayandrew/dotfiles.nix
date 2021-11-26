@@ -38,7 +38,14 @@
       # -- navigation ----------------------------------------------------------------
 
       # create session
-      bind C-c new-session
+      bind C-c command-prompt -p "New Session:" "new-session -A -s '%%'"
+      # bind C-c new-session
+
+      # kill session
+      bind C-k confirm kill-session
+
+      # reload tmux conf
+      bind C-e source-file ${config.xdg.configHome}/tmux/tmux.conf
 
       # find session
       bind C-f command-prompt -p find-session 'switch-client -t %%'
@@ -86,7 +93,8 @@
       run -b 'tmux bind -t vi-copy C-v rectangle-toggle 2> /dev/null || true'
       run -b 'tmux bind -T copy-mode-vi C-v send -X rectangle-toggle 2> /dev/null || true'
       run -b 'tmux bind -t vi-copy y copy-selection 2> /dev/null || true'
-      run -b 'tmux bind -T copy-mode-vi y send -X copy-selection-and-cancel 2> /dev/null || true'
+      # run -b 'tmux bind -T copy-mode-vi y send -X copy-selection-and-cancel 2> /dev/null || true'
+      run -b 'tmux bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xclip -in -selection clipboard" 2> /dev/null || true'
       run -b 'tmux bind -t vi-copy Escape cancel 2> /dev/null || true'
       run -b 'tmux bind -T copy-mode-vi Escape send -X cancel 2> /dev/null || true'
       run -b 'tmux bind -t vi-copy H start-of-line 2> /dev/null || true'
@@ -124,13 +132,13 @@
         extraConfig = "set -g @resurrect-strategy-nvim 'session'";
       }
       tmuxPlugins.nord
-      # {
-      #   plugin = tmuxPlugins.continuum;
-      #   extraConfig = ''
-      #    set -g @continuum-restore 'on'
-      #    set -g @continuum-save-interval '60' # minutes
-      #   '';
-      # }
+      {
+        plugin = tmuxPlugins.continuum;
+        extraConfig = ''
+          set -g @continuum-restore 'on'
+          set -g @continuum-save-interval '15' # minutes
+        '';
+      }
     ];
   };
 }

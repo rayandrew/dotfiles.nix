@@ -10,26 +10,27 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    (zoom-us.overrideAttrs (oldAttrs: rec {
-      postFixup = ''
-        ${oldAttrs.postFixup}
+    zoom-us
+    # (zoom-us.overrideAttrs (oldAttrs: rec {
+    #   postFixup = ''
+    #     ${oldAttrs.postFixup}
 
-        # Desktop File
-        # TODO Need to fix this, change /run/current-system...
-        #      to real firejail-wrapped-binaries path
-        substituteInPlace $out/share/applications/Zoom.desktop \
-          --replace "Exec=$out/bin/zoom" "Exec=/run/current-system/sw/bin/${zoom-bin}"
-      '';
-    }))
+    #     # Desktop File
+    #     # TODO Need to fix this, change /run/current-system...
+    #     #      to real firejail-wrapped-binaries path
+    #     substituteInPlace $out/share/applications/Zoom.desktop \
+    #       --replace "Exec=$out/bin/zoom" "Exec=/run/current-system/sw/bin/${zoom-bin}"
+    #   '';
+    # }))
   ];
 
   programs.firejail.wrappedBinaries = {
-    "${zoom-bin}" = {
-      executable = "${lib.getBin pkgs.zoom-us}/bin/zoom-us";
-      profile = "${pkgs.firejail}/etc/firejail/zoom.profile";
-      extraArgs = [
-        "--private=${firejail-home}"
-      ];
-    };
+    # "${zoom-bin}" = {
+    #   executable = "${lib.getBin pkgs.zoom-us}/bin/zoom-us";
+    #   profile = "${pkgs.firejail}/etc/firejail/zoom.profile";
+    #   extraArgs = [
+    #     "--private=${firejail-home}"
+    #   ];
+    # };
   };
 }
