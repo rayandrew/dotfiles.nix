@@ -17,11 +17,12 @@ in
     arandr
     nix-prefetch-github
     fasd
-    audio-recorder
 
+    audio-recorder
     evince
     meld
     pavucontrol
+    flameshot
 
     pdftk
 

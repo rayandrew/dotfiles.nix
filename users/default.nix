@@ -45,12 +45,14 @@ in
         display.i3
         display.rofi
         display.xrandr
+        display.picom
         terminal.urxvt
         terminal.kitty
         terminal.st
         browser.brave
         browser.google-chrome
         editor.vscode
+        editor.jetbrains
         communications.skype
         communications.slack
         communications.discord

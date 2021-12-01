@@ -26,6 +26,15 @@
           sha256 = "8JASaNylXAGnWd2IV88juk73b8eJJlVrpyiRZUwHGFQ=";
         };
       }
+      {
+        name = "tide";
+        src = pkgs.fetchFromGitHub {
+          owner = "IlanCosman";
+          repo = "tide";
+          rev = "3787c725f7f6a0253f59a2c0e9fde03202689c6c";
+          sha256 = "kqbdI69zVjNTi5vbz3sMcGDPXi6ueyqd628FgcOK+gM=";
+        };
+      }
     ];
 
     shellAliases = {
@@ -46,7 +55,7 @@
     };
 
     shellInit = ''
-      ${pkgs.starship}/bin/starship init fish | source
+      # ${pkgs.starship}/bin/starship init fish | source
     '';
 
     interactiveShellInit = ''
