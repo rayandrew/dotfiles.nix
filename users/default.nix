@@ -42,10 +42,12 @@ in
         shells.tmux
       ];
       desktop = [
+        display.xsession
         display.i3
         display.rofi
         display.xrandr
         display.picom
+        display.dunst
         terminal.urxvt
         terminal.kitty
         terminal.st

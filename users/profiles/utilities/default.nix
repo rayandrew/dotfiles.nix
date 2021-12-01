@@ -18,11 +18,15 @@ in
     nix-prefetch-github
     fasd
 
+    neofetch
+    feh
+
     audio-recorder
     evince
     meld
     pavucontrol
     flameshot
+    nitrogen
 
     pdftk
 

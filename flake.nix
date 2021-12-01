@@ -8,8 +8,8 @@
   inputs =
     {
       nixos = {
-        # url = "github:nixos/nixpkgs/release-21.05";
-        url = "github:nixos/nixpkgs/nixos-unstable";
+        url = "github:nixos/nixpkgs/release-21.11";
+        # url = "github:nixos/nixpkgs/nixos-unstable";
       };
 
       latest = {
