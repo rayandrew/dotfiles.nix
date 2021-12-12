@@ -37,7 +37,6 @@ in
         editor.emacs
         scm.git
         scm.svn
-        developments.latex
         shells.fish
         shells.tmux
       ];
@@ -60,12 +59,20 @@ in
         communications.discord
         media.spotify
       ];
+      devs = [
+        developments.latex
+        developments.c
+        developments.ruby
+        developments.python
+        developments.javascript
+      ];
     };
   };
   users = {
     rayandrew = { suites, ... }: {
       imports = suites.base
-        ++ suites.desktop;
+        ++ suites.desktop
+        ++ suites.devs;
     };
   }; # digga.lib.importers.rakeLeaves ./users/hm;
 }

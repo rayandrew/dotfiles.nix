@@ -5,7 +5,8 @@
   ]
   ++ suites.base
   ++ suites.personal
-  ++ suites.hardware;
+  ++ suites.hardware
+  ++ suites.db;
 
   bud.enable = true;
   bud.localFlakeClone = "/home/rayandrew/dotfiles";

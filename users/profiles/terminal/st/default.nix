@@ -30,7 +30,8 @@
     st.alphaOffset: 0.3
 
     !! Set a default font and font size as below:
-    st.font: FiraCode Nerd Font-15
+    !! st.font: FiraCode Nerd Font-15
+    st.font: Ubuntu Mono-17
     !! st.font: Inconsolata-g for Powerline-14
     !! st.font: Inconsolata for Powerline:pixelsize=18
   '';

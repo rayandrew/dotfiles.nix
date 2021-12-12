@@ -207,6 +207,7 @@
                 hardwares.backlight
                 hardwares.sensors
                 utilities
+                printers
               ];
               personal = [
                 cachix
@@ -217,6 +218,9 @@
                 virtualizations.docker
                 virtualizations.podman
                 virtualizations.arion
+              ];
+              db = [
+                databases.postgresql
               ];
             };
           };

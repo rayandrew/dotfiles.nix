@@ -60,6 +60,8 @@
 
     interactiveShellInit = ''
       fish_add_path ${config.home.homeDirectory}/.npm-global/bin
+      fish_add_path ${config.home.homeDirectory}/.local/share/gem/ruby/3.0.0/bin
+      set -x C_INCLUDE_PATH /nix/store/i80hgssxz2710ysawck5k9im6ccbic89-postgresql-13.4/include $C_INCLUDE_PATH
     '';
   };
 }

@@ -28,12 +28,12 @@ in
     flameshot
     nitrogen
 
+    gnumake
+    pkg-config
+
     pdftk
 
-    python39
-    gcc
-
-    nodejs
+    sqlite
   ];
 
   programs.exa = {
