@@ -1,11 +1,11 @@
 { config, lib, pkgs, ... }:
 
 {
-  fonts = {
-    fontconfig = {
-      enable = true;
-    };
-  };
+  # fonts = {
+  #   fontconfig = {
+  #     enable = true;
+  #   };
+  # };
 
   home.packages = with pkgs; [
     (nerdfonts.override {
